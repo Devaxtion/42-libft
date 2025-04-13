@@ -15,23 +15,15 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
-	int	occured;
-	int	last_occurrence;
 
 	i = 0;
-	occured = 0;
 	while (s[i])
+		i++;
+	while (i >= 0)
 	{
 		if (s[i] == c)
-		{
-			last_occurrence = i;
-			occured = 1;
-			break;
-		}
-		i++;
+			return ((char *)(s + i));
+		i--;
 	}
-	if (occured)
-		return ((char *)(s + last_occurrence));
-
 	return (NULL);
 }

@@ -5,42 +5,41 @@
 #                                                     +:+ +:+         +:+      #
 #    By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/10 11:54:19 by leramos-          #+#    #+#              #
-#    Updated: 2025/04/10 11:56:08 by leramos-         ###   ########.fr        #
+#    Created: 2025/04/13 17:38:03 by leramos-          #+#    #+#              #
+#    Updated: 2025/04/13 17:38:03 by leramos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
-NAME = libft.a
+NAME = libft_tests
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
 # Project structure
-SRC_DIR = .
+SRC_DIR = ..
+TEST_DIR = .
+UNITS_DIR = $(TEST_DIR)/unit
 
 # Files
-SRCS = ft_isalpha.c ft_isascii.c ft_strlen.c
-HDRS = libft.h
-OBJS = $(SRCS:.c=.o)
+SRCS := $(wildcard $(SRC_DIR)/*.c)
+UNITS := $(wildcard $(UNITS_DIR)/test_*.c)
+TESTS += $(UNITS) $(TEST_DIR)/main.c
 
 # Rules
-all: ${NAME}
+all: $(NAME)
 
-${NAME}: ${OBJS}
-	$(AR) ${NAME} $(OBJS)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(SRCS) $(TESTS)
+	$(CC) $(CFLAGS) $^ -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(NAME)
 
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re: clean all
 
 # Phony targets
 .PHONY: all clean fclean re

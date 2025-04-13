@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   testlib.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 12:38:57 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/10 13:33:26 by leramos-         ###   ########.fr       */
+/*   Created: 2025/04/13 19:25:36 by leramos-          #+#    #+#             */
+/*   Updated: 2025/04/13 19:25:36 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef TESTLIB_H
+# define TESTLIB_H
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	size_t	i;
+# include <assert.h>
+# include "../libft.h"
 
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
-		i++;
-	}
-	return (dest);
-}
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# include <string.h>
+# include <stdio.h>
+
+#endif
