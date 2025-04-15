@@ -1,0 +1,77 @@
+#include "../testlib.h"
+
+static int counter = 0;
+
+static void count_nodes(void *content)
+{
+    (void)content;
+    counter++;
+}
+
+static void modify_content(void *content)
+{
+    char *str = (char *)content;
+    if (str)
+        str[0] = toupper(str[0]);
+}
+
+static void test_iterate_empty_list(void)
+{
+    counter = 0;
+    ft_lstiter(NULL, count_nodes);
+    assert(counter == 0);
+}
+
+static void test_count_nodes(void)
+{
+    t_list *lst = NULL;
+    t_list *node1 = ft_lstnew(strdup("node1"));
+    t_list *node2 = ft_lstnew(strdup("node2"));
+    t_list *node3 = ft_lstnew(strdup("node3"));
+    
+    ft_lstadd_back(&lst, node1);
+    ft_lstadd_back(&lst, node2);
+    ft_lstadd_back(&lst, node3);
+    
+    counter = 0;
+    ft_lstiter(lst, count_nodes);
+    assert(counter == 3);
+    
+    ft_lstclear(&lst, free);
+}
+
+static void test_modify_content(void)
+{
+    t_list *lst = NULL;
+    t_list *node1 = ft_lstnew(strdup("hello"));
+    t_list *node2 = ft_lstnew(strdup("world"));
+    
+    ft_lstadd_back(&lst, node1);
+    ft_lstadd_back(&lst, node2);
+    
+    ft_lstiter(lst, modify_content);
+    
+    assert(strcmp(node1->content, "Hello") == 0);
+    assert(strcmp(node2->content, "World") == 0);
+    
+    ft_lstclear(&lst, free);
+}
+
+static void test_null_function(void)
+{
+    t_list *lst = ft_lstnew(strdup("test"));
+    
+    // Should not crash with NULL function
+    ft_lstiter(lst, NULL);
+    
+    free(lst->content);
+    free(lst);
+}
+
+void test_ft_lstiter(void)
+{
+    test_iterate_empty_list();
+    test_count_nodes();
+    test_modify_content();
+    test_null_function();
+}

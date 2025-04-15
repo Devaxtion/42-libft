@@ -40,7 +40,12 @@
     X(test_ft_lstnew) \
     X(test_ft_lstadd_front) \
     X(test_ft_lstsize) \
-    X(test_ft_lstlast)
+    X(test_ft_lstlast) \
+    X(test_ft_lstadd_back) \
+    X(test_ft_lstdelone) \
+    X(test_ft_lstclear) \
+    X(test_ft_lstiter) \
+    X(test_ft_lstmap)
 
 // Generate function declarations
 #define X(test) void test(void);
