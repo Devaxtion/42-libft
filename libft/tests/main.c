@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-// Define a list of test functions
-#define TEST_LIST \
+// Part 1 (22 files)
+#define TEST_LIST_P1 \
     X(test_ft_atoi) \
     X(test_ft_bzero) \
     X(test_ft_calloc) \
@@ -25,9 +25,28 @@
     X(test_ft_tolower) \
     X(test_ft_toupper)
 
+// Part 2 (7 files)
+#define TEST_LIST_P2 \
+    X(test_ft_substr) \
+    X(test_ft_strjoin) \
+    X(test_ft_strtrim) \
+    X(test_ft_split) \
+    X(test_ft_itoa) \
+    X(test_ft_strmapi) \
+    X(test_ft_striteri)
+
+// Part 2 (7 files)
+#define TEST_LIST_BONUS \
+    X(test_ft_lstnew) \
+    X(test_ft_lstadd_front) \
+    X(test_ft_lstsize) \
+    X(test_ft_lstlast)
+
 // Generate function declarations
 #define X(test) void test(void);
-TEST_LIST
+TEST_LIST_P1
+TEST_LIST_P2
+TEST_LIST_BONUS
 #undef X
 
 int main() {
@@ -35,7 +54,12 @@ int main() {
 
     // Call each test function
     #define X(test) test();
-    TEST_LIST
+    printf("Part 1...\n");
+    TEST_LIST_P1
+    printf("Part 2...\n");
+    TEST_LIST_P2
+    printf("Bonus...\n");
+    TEST_LIST_BONUS
     #undef X
 
     printf("All tests passed!\n");

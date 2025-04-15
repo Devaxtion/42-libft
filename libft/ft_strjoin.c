@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 13:18:16 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/10 13:33:05 by leramos-         ###   ########.fr       */
+/*   Created: 2025/04/14 11:04:34 by leramos-          #+#    #+#             */
+/*   Updated: 2025/04/14 11:04:34 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	src_size;
-	size_t	dst_size;
+	size_t	buffer_size;
+	char	*dst;
 
-	if (!dst || !src)
-		return (0);
-	src_size = ft_strlen(src);
-	dst_size = ft_strlen(dst);
-	if (size <= dst_size)
-		return (src_size + size);
-	i = 0;
-	while (src[i] && i < (size - dst_size - 1))
-	{
-		dst[dst_size + i] = src[i];
-		i++;
-	}
-	dst[dst_size + i] = '\0';
-	return (src_size + dst_size);
+	if (!s1 || !s2)
+		return (NULL);
+	buffer_size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	dst = malloc(buffer_size);
+	if (!dst)
+		return (NULL);
+	ft_strlcpy(dst, s1, buffer_size);
+	ft_strlcat(dst, s2, buffer_size);
+	return (dst);
 }

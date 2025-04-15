@@ -19,10 +19,11 @@ RM = rm -f
 
 # Project structure
 SRC_DIR = .
+HDR_DIR = $(SRC_DIR)
 
 # Files
-SRCS = ft_isalpha.c ft_isascii.c ft_strlen.c
-HDRS = libft.h
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+HDRS = $(wildcard $(HDR_DIR)/*.h)
 OBJS = $(SRCS:.c=.o)
 
 # Rules

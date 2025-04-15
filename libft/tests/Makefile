@@ -10,34 +10,35 @@
 #                                                                              #
 # **************************************************************************** #
 
+# Tests for libft
+
 # Variables
 NAME = libft_tests
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
 RM = rm -f
 
 # Project structure
 SRC_DIR = ..
+LIB_DIR = $(SRC_DIR)
 TEST_DIR = .
 UNITS_DIR = $(TEST_DIR)/unit
 
 # Files
-SRCS := $(wildcard $(SRC_DIR)/*.c)
+LIBFT = $(LIB_DIR)/libft.a
 UNITS := $(wildcard $(UNITS_DIR)/test_*.c)
 TESTS += $(UNITS) $(TEST_DIR)/main.c
 
 # Rules
 all: $(NAME)
 
-$(NAME): $(SRCS) $(TESTS)
-	$(CC) $(CFLAGS) $^ -o $@
+$(NAME): $(TESTS) $(LIBFT)
+	$(CC) $(CFLAGS) $^ -L$(LIB_DIR) -lft -o $@
 
 clean:
 	$(RM) $(NAME)
 
 fclean: clean
-	$(RM) $(NAME)
 
 re: clean all
 
