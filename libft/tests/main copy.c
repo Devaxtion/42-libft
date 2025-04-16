@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <time.h>
-#include "testlib.h"
 
 // Part 1 (22 files)
 #define TEST_LIST_P1 \
@@ -37,7 +35,7 @@
     X(test_ft_strmapi) \
     X(test_ft_striteri)
 
-// Bonus (9 files)
+// Part 2 (7 files)
 #define TEST_LIST_BONUS \
     X(test_ft_lstnew) \
     X(test_ft_lstadd_front) \
@@ -50,30 +48,26 @@
     X(test_ft_lstmap)
 
 // Generate function declarations
-#define X(test) int test(void);
+#define X(test) void test(void);
 TEST_LIST_P1
 TEST_LIST_P2
 TEST_LIST_BONUS
 #undef X
 
 int main() {
-    printf(COLOR_CYAN "=== Running libft tests ===\n\n" COLOR_RESET);
 
-    printf(COLOR_YELLOW "Part 1 Tests:\n" COLOR_RESET);
+    printf("Running libft tests...\n");
+
+    // Call each test function
     #define X(test) test();
+    printf("Part 1...\n");
     TEST_LIST_P1
-    #undef X
-
-    printf(COLOR_YELLOW "Part 2 Tests:\n" COLOR_RESET);
-    #define X(test) test();
+    printf("Part 2...\n");
     TEST_LIST_P2
-    #undef X
-    
-    printf(COLOR_YELLOW "Bonus Tests:\n" COLOR_RESET);
-    #define X(test) test();
+    printf("Bonus...\n");
     TEST_LIST_BONUS
     #undef X
 
-    printf("\nAll tests completed!\n");
+    printf("All tests passed!\n");
     return 0;
 }

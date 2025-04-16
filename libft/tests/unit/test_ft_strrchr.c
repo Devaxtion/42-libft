@@ -63,6 +63,7 @@ static void test_multiple_occurrences(void)
 
 void test_ft_strrchr(void)
 {
+    TEST_START();
     test_find_last_occurrence();
     test_find_null_terminator();
     test_char_not_found();
@@ -71,4 +72,5 @@ void test_ft_strrchr(void)
     test_empty_string();
     test_int_to_char_conversion();
     test_multiple_occurrences();
+    TEST_PASS();
 }

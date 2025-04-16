@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:26:13 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/10 13:09:47 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:42:10 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <limits.h>
 // # define NULL '\0'
 // typedef long long unsigned size_t;
 // # include <limits.h>

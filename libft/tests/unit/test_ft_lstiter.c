@@ -70,8 +70,10 @@ static void test_null_function(void)
 
 void test_ft_lstiter(void)
 {
+    TEST_START();
     test_iterate_empty_list();
     test_count_nodes();
     test_modify_content();
     test_null_function();
+    TEST_PASS();
 }

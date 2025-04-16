@@ -40,8 +40,10 @@ static void test_non_alnum_chars(void)
 
 void test_ft_isalnum(void)
 {
+    TEST_START();
     test_alphabetic_chars();
     test_numeric_chars();
     test_negative_values();
     test_non_alnum_chars();
+    TEST_PASS();
 }

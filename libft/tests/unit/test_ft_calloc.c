@@ -73,10 +73,12 @@ static void test_content_initialization(void)
 
 void test_ft_calloc(void)
 {
+    TEST_START();
     test_normal_allocation();
     test_zero_nmemb();
     test_zero_size();
     test_both_zero();
     test_large_allocation();
     test_content_initialization();
+    TEST_PASS();
 }

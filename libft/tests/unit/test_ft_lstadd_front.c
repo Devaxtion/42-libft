@@ -69,8 +69,10 @@ static void test_null_parameters(void)
 
 void test_ft_lstadd_front(void)
 {
+    TEST_START();
     test_add_to_empty_list();
     test_add_to_existing_list();
     test_add_multiple_nodes();
     test_null_parameters();
+    TEST_PASS();
 }

@@ -71,6 +71,7 @@ static void test_find_zero(void)
 
 void test_ft_strchr(void)
 {
+    TEST_START();
     test_find_existing_char();
     test_find_first_char();
     test_find_last_char();
@@ -80,4 +81,5 @@ void test_ft_strchr(void)
     test_empty_string();
     test_int_to_char_conversion();
     test_find_zero();
+    TEST_PASS();
 }

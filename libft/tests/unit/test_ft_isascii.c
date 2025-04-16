@@ -32,8 +32,10 @@ static void test_large_values(void)
 
 void test_ft_isascii(void)
 {
+    TEST_START();
     test_standard_ascii();
     test_extended_ascii();
     test_negative_values();
     test_large_values();
+    TEST_PASS();
 }

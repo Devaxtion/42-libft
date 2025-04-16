@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   testlib copy.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 13:33:56 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/16 14:55:49 by leramos-         ###   ########.fr       */
+/*   Created: 2025/04/13 19:25:36 by leramos-          #+#    #+#             */
+/*   Updated: 2025/04/16 13:26:23 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
-}
+#ifndef TESTLIB_H
+# define TESTLIB_H
+
+# include <assert.h>
+# include "../libft.h"
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# include <string.h>
+# include <stdio.h>
+# include <ctype.h>
+
+#endif

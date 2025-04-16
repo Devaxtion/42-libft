@@ -72,6 +72,7 @@ static void test_no_null_termination_needed(void)
 
 void test_ft_strlcpy(void)
 {
+    TEST_START();
     test_normal_copy();
     test_exact_fit();
     test_truncation();
@@ -79,4 +80,5 @@ void test_ft_strlcpy(void)
     test_empty_source();
     test_one_byte_buffer();
     test_no_null_termination_needed();
+    TEST_PASS();
 }

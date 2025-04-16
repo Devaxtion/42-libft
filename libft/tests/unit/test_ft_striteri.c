@@ -64,9 +64,11 @@ static void test_no_operation(void)
 
 void test_ft_striteri(void)
 {
+    TEST_START();
     test_modify_odd_indices();
     test_replace_with_index();
     test_empty_string();
     test_null_input();
     test_no_operation();
+    TEST_PASS();
 }

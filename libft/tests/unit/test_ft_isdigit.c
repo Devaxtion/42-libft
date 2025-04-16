@@ -37,6 +37,8 @@ static void test_non_digit_chars(void)
 
 void test_ft_isdigit(void)
 {
+    TEST_START();
     test_digit_chars();
     test_non_digit_chars();
+    TEST_PASS();
 }

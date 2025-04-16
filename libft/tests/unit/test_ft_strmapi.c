@@ -75,9 +75,11 @@ static void test_identity_function(void)
 
 void test_ft_strmapi(void)
 {
+    TEST_START();
     test_alternate_case();
     test_add_index();
     test_empty_string();
     test_null_input();
     test_identity_function();
+    TEST_PASS();
 }

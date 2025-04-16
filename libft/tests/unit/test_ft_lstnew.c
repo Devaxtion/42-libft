@@ -51,8 +51,10 @@ static void test_struct_content(void)
 
 void test_ft_lstnew(void)
 {
+    TEST_START();
     test_int_content();
     test_string_content();
     test_null_content();
     test_struct_content();
+    TEST_PASS();
 }

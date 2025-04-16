@@ -71,6 +71,7 @@ static void test_middle_of_string(void)
 
 void test_ft_substr(void)
 {
+    TEST_START();
     test_normal_case();
     test_start_at_zero();
     test_length_longer_than_string();
@@ -79,4 +80,5 @@ void test_ft_substr(void)
     test_empty_string();
     test_null_input();
     test_middle_of_string();
+    TEST_PASS();
 }

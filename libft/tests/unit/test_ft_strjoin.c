@@ -83,6 +83,7 @@ static void test_large_strings(void)
 
 void test_ft_strjoin(void)
 {
+    TEST_START();
     test_normal_join();
     test_empty_first_string();
     test_empty_second_string();
@@ -91,4 +92,5 @@ void test_ft_strjoin(void)
     test_null_second_string();
     test_special_chars();
     test_large_strings();
+    TEST_PASS();
 }

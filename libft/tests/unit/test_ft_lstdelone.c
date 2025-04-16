@@ -41,8 +41,10 @@ static void test_null_node(void)
 
 void test_ft_lstdelone(void)
 {
+    TEST_START();
     test_free_node_with_content();
     test_free_node_with_null_content();
     test_free_node_with_null_del();
     test_null_node();
+    TEST_PASS();
 }

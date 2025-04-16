@@ -42,7 +42,9 @@ static void test_non_alpha_chars(void)
 
 void test_ft_isalpha(void)
 {
+    TEST_START();
     test_lowercase_letters();
     test_uppercase_letters();
     test_non_alpha_chars();
+    TEST_PASS();
 }

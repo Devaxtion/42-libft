@@ -20,7 +20,9 @@ static void test_special_chars() {
 
 void test_ft_strlen()
 {
+    TEST_START();
     test_normal_cases();
     test_long_strings();
     test_special_chars(); 
+    TEST_PASS();
 }

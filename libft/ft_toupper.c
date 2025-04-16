@@ -6,13 +6,13 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:29:21 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/10 13:33:00 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/16 14:55:57 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		c -= 32;
+		return (c - 32);
 	return (c);
 }

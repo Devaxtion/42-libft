@@ -72,6 +72,7 @@ static void test_no_null_terminator(void)
 
 void test_ft_strlcat(void)
 {
+    TEST_START();
     test_normal_concatenation();
     test_exact_fit();
     test_truncation();
@@ -79,4 +80,5 @@ void test_ft_strlcat(void)
     test_empty_destination();
     test_empty_source();
     test_no_null_terminator();
+    TEST_PASS();
 }

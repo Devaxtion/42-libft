@@ -71,6 +71,7 @@ static void test_unsigned_char_conversion(void)
 
 void test_ft_memchr(void)
 {
+    TEST_START();
     test_find_existing_char();
     test_find_first_char();
     test_find_last_char();
@@ -80,4 +81,5 @@ void test_ft_memchr(void)
     test_partial_search();
     test_find_null_byte();
     test_unsigned_char_conversion();
+    TEST_PASS();
 }

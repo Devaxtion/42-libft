@@ -78,6 +78,7 @@ static void test_complex_trim(void)
 
 void test_ft_strtrim(void)
 {
+    TEST_START();
     test_normal_trim();
     test_multiple_chars_to_trim();
     test_trim_from_start_only();
@@ -87,4 +88,5 @@ void test_ft_strtrim(void)
     test_all_trimmed();
     test_null_input();
     test_complex_trim();
+    TEST_PASS();
 }

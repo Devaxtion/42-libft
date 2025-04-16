@@ -86,6 +86,7 @@ static void test_little_longer_than_big(void)
 
 void test_ft_strnstr(void)
 {
+    TEST_START();
     test_find_substring();
     test_substring_at_start();
     test_substring_at_end();
@@ -96,4 +97,5 @@ void test_ft_strnstr(void)
     test_zero_len();
     test_exact_match();
     test_little_longer_than_big();
+    TEST_PASS();
 }

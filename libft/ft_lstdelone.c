@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 22:04:37 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/15 22:04:37 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:35:33 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,8 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	// guardar next em temp
-	t_list	*temp;
-
-	if (!lst || !(*del))
+	if (!lst || !del)
 		return ;
-	temp = lst->next;
-	// apagar next
-	(*del)(lst->next);
-	// colocar a info de next em lst
-	lst = temp;
-	// delete temp
-	(*del)(temp);
+	del(lst->content);
+	free(lst);
 }
-
-//    1    2    3    4    5
-//        lst  next
-//
-//      content
-//        next

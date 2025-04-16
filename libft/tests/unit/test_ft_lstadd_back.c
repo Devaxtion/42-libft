@@ -77,9 +77,11 @@ static void test_multiple_additions(void)
 
 void test_ft_lstadd_back(void)
 {
+    TEST_START();
     test_add_to_empty_list();
     test_add_to_single_node_list();
     test_add_to_multiple_node_list();
     test_null_parameters();
     test_multiple_additions();
+    TEST_PASS();
 }

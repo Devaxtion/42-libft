@@ -60,6 +60,7 @@ static void test_empty_strings(void)
 
 void test_ft_strncmp(void)
 {
+    TEST_START();
     test_identical_strings();
     test_different_strings();
     test_partial_comparison();
@@ -68,4 +69,5 @@ void test_ft_strncmp(void)
     test_unsigned_comparison();
     test_different_lengths();
     test_empty_strings();
+    TEST_PASS();
 }

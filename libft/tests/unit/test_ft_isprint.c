@@ -58,10 +58,12 @@ static void test_negative_values(void)
 
 void test_ft_isprint(void)
 {
+    TEST_START();
     test_printable_chars();
     test_non_printable_chars();
     test_whitespace_chars();
     test_boundary_values();
     test_extended_ascii();
     test_negative_values();
+    TEST_PASS();
 }

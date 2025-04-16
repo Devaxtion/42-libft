@@ -63,9 +63,11 @@ static void test_return_value(void)
 
 void test_ft_memcpy(void)
 {
+    TEST_START();
     test_normal_copy();
     test_partial_copy();
     test_zero_length();
     test_non_string_data();
     test_return_value();
+    TEST_PASS();
 }

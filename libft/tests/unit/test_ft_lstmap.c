@@ -110,9 +110,11 @@ static void test_null_functions(void)
 
 void test_ft_lstmap(void)
 {
+    TEST_START();
     test_string_transformation();
     test_number_transformation();
     test_empty_list();
     test_allocation_failure();
     test_null_functions();
+    TEST_PASS();
 }

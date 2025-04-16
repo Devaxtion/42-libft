@@ -55,8 +55,10 @@ static void test_large_list(void)
 
 void test_ft_lstsize(void)
 {
+    TEST_START();
     test_empty_list();
     test_single_node_list();
     test_multiple_node_list();
     test_large_list();
+    TEST_PASS();
 }

@@ -58,6 +58,7 @@ static void test_completely_different(void)
 
 void test_ft_memcmp(void)
 {
+    TEST_START();
     test_identical_memory();
     test_different_memory();
     test_partial_comparison();
@@ -66,4 +67,5 @@ void test_ft_memcmp(void)
     test_unsigned_comparison();
     test_non_string_data();
     test_completely_different();
+    TEST_PASS();
 }

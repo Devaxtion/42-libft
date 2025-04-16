@@ -58,6 +58,7 @@ static void test_single_digit_negative(void)
 
 void test_ft_itoa(void)
 {
+    TEST_START();
     test_positive_number();
     test_negative_number();
     test_zero();
@@ -65,4 +66,5 @@ void test_ft_itoa(void)
     test_int_min();
     test_single_digit_positive();
     test_single_digit_negative();
+    TEST_PASS();
 }

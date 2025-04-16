@@ -87,6 +87,7 @@ static void test_boundary_values(void)
 
 void test_ft_memset(void)
 {
+    TEST_START();
     test_normal_case();
     test_zero_count();
     test_full_overwrite();
@@ -95,4 +96,5 @@ void test_ft_memset(void)
     test_null_pointer();
     test_int_to_unsigned_char_conversion();
     test_boundary_values();
+    TEST_PASS();
 }

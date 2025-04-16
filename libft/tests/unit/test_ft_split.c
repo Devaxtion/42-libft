@@ -81,6 +81,7 @@ static void test_special_delimiter(void)
 
 void test_ft_split(void)
 {
+    TEST_START();
     test_normal_split();
     test_consecutive_delimiters();
     test_delimiter_at_start_end();
@@ -89,4 +90,5 @@ void test_ft_split(void)
     test_empty_string();
     test_null_input();
     test_special_delimiter();
+    TEST_PASS();
 }

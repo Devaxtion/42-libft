@@ -64,10 +64,12 @@ static void test_partial_clear() {
 }
 
 void test_ft_bzero() {
+    TEST_START();
     test_normal_case();
     test_zero_count();
     test_full_overwrite();
     test_non_char_buffer();
     test_large_buffer();
     test_partial_clear();
+    TEST_PASS();
 }
