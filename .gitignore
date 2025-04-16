@@ -1,4 +1,9 @@
-sh01/ex05/"\?$*'MaRViN'*$?\"
+# Files without extension type
+*
+!/**/
+!*.*
+
+# Other files
 .vscode
 *.exe
 *.out
