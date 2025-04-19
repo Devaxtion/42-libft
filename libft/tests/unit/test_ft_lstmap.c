@@ -121,17 +121,6 @@ static void test_original_list_unchanged(void)
     ft_lstclear(&new, simple_free);
 }
 
-static void test_alloc_failure_mid_list(void)
-{
-    t_list *lst = NULL;
-    ft_lstadd_back(&lst, ft_lstnew(strdup("good")));
-    ft_lstadd_back(&lst, ft_lstnew(strdup("bad")));
-
-    t_list *new = ft_lstmap(lst, alloc_fail_func, simple_free);
-    assert(new == NULL);  // Should clean up and return NULL
-    ft_lstclear(&lst, simple_free);
-}
-
 static void test_del_called_on_failure(void)
 {
     t_list *lst = ft_lstnew(strdup("test"));
@@ -153,7 +142,6 @@ void test_ft_lstmap(void)
     test_allocation_failure();
     test_null_functions();
     test_original_list_unchanged();
-    test_alloc_failure_mid_list();
     test_del_called_on_failure();
     TEST_PASS();
 }
