@@ -59,21 +59,19 @@ TEST_LIST_BONUS
 int main() {
     printf(COLOR_CYAN "=== Running libft tests ===\n\n" COLOR_RESET);
 
-    printf(COLOR_YELLOW "Part 1 Tests:\n" COLOR_RESET);
     #define X(test) test();
-    TEST_LIST_P1
-    #undef X
 
+    printf(COLOR_YELLOW "Part 1 Tests:\n" COLOR_RESET);
+    TEST_LIST_P1
+    
     printf(COLOR_YELLOW "Part 2 Tests:\n" COLOR_RESET);
-    #define X(test) test();
     TEST_LIST_P2
-    #undef X
     
     printf(COLOR_YELLOW "Bonus Tests:\n" COLOR_RESET);
-    #define X(test) test();
     TEST_LIST_BONUS
+    
     #undef X
 
-    printf("\nAll tests completed!\n");
-    return 0;
+    printf(COLOR_GREEN "\nAll tests completed!\n" COLOR_RESET);
+    return (0);
 }

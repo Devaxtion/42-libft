@@ -70,6 +70,16 @@ static void test_no_null_terminator(void)
     assert(result == strlen("Hi") + strlen(" There"));
 }
 
+static void test_source_longer_than_dstsize(void)
+{
+    char dst[10] = "Hello";
+    const char *src = "This is much longer";
+    size_t result = ft_strlcat(dst, src, sizeof(dst));
+    
+    assert(strncmp(dst, "HelloThis", 9) == 0);
+    assert(result == strlen("Hello") + strlen("This is much longer"));
+}
+
 void test_ft_strlcat(void)
 {
     TEST_START();
@@ -80,5 +90,6 @@ void test_ft_strlcat(void)
     test_empty_destination();
     test_empty_source();
     test_no_null_terminator();
+    test_source_longer_than_dstsize();
     TEST_PASS();
 }

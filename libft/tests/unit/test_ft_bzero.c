@@ -63,6 +63,10 @@ static void test_partial_clear() {
     assert(memcmp(str1, str2, 20) == 0);
 }
 
+static void test_null_with_zero() {
+    ft_bzero(NULL, 0);
+}
+
 void test_ft_bzero() {
     TEST_START();
     test_normal_case();
@@ -71,5 +75,6 @@ void test_ft_bzero() {
     test_non_char_buffer();
     test_large_buffer();
     test_partial_clear();
+    test_null_with_zero();
     TEST_PASS();
 }

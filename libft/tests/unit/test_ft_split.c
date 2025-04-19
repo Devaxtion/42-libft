@@ -79,6 +79,17 @@ static void test_special_delimiter(void)
     free(result);
 }
 
+static void test_non_ascii_delimiter(void)
+{
+    char **result = ft_split("hello\xFFworld\xFFtest", '\xFF');
+    assert(result != NULL);
+    assert(strcmp(result[0], "hello") == 0);
+    assert(strcmp(result[1], "world") == 0);
+    assert(strcmp(result[2], "test") == 0);
+    assert(result[3] == NULL);
+    free(result);
+}
+
 void test_ft_split(void)
 {
     TEST_START();
@@ -90,5 +101,6 @@ void test_ft_split(void)
     test_empty_string();
     test_null_input();
     test_special_delimiter();
+    test_non_ascii_delimiter();
     TEST_PASS();
 }

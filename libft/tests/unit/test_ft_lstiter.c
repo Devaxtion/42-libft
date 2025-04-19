@@ -57,15 +57,19 @@ static void test_modify_content(void)
     ft_lstclear(&lst, free);
 }
 
-static void test_null_function(void)
+static void test_null_function_safety(void)
 {
-    t_list *lst = ft_lstnew(strdup("test"));
+    t_list *lst = NULL;
+    ft_lstadd_back(&lst, ft_lstnew(strdup("test1")));
+    ft_lstadd_back(&lst, ft_lstnew(strdup("test2")));
     
-    // Should not crash with NULL function
+    // Should not crash and should preserve content
     ft_lstiter(lst, NULL);
     
-    free(lst->content);
-    free(lst);
+    assert(strcmp(lst->content, "test1") == 0);
+    assert(strcmp(lst->next->content, "test2") == 0);
+    
+    ft_lstclear(&lst, free);
 }
 
 void test_ft_lstiter(void)
@@ -74,6 +78,6 @@ void test_ft_lstiter(void)
     test_iterate_empty_list();
     test_count_nodes();
     test_modify_content();
-    test_null_function();
+    test_null_function_safety();
     TEST_PASS();
 }

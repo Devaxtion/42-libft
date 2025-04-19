@@ -30,6 +30,8 @@ static void test_mixed_cases() {
     assert(ft_atoi("-42abc") == -42);
     assert(ft_atoi("abc42") == 0);
     assert(ft_atoi("123abc456") == 123);
+    assert(ft_atoi("42!@#") == 42);
+    assert(ft_atoi("-42!@#") == -42);
 }
 
 static void test_overflow_cases() {

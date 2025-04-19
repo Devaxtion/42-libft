@@ -61,6 +61,18 @@ static void test_large_list(void)
     }
 }
 
+static void test_mixed_content_types(void)
+{
+    t_list *node1 = ft_lstnew("String");
+    t_list *node2 = ft_lstnew((void *)42); // int as content
+    node1->next = node2;
+    
+    t_list *last = ft_lstlast(node1);
+    assert(last == node2);
+    free(node1);
+    free(node2);
+}
+
 void test_ft_lstlast(void)
 {
     TEST_START();
@@ -68,5 +80,6 @@ void test_ft_lstlast(void)
     test_single_node_list();
     test_multiple_node_list();
     test_large_list();
+    test_mixed_content_types();
     TEST_PASS();
 }

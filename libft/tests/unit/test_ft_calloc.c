@@ -71,6 +71,26 @@ static void test_content_initialization(void)
     free(arr);
 }
 
+static void test_overflow(void)
+{
+    size_t nmemb = SIZE_MAX;
+    size_t size = 2;
+    void *ptr = ft_calloc(nmemb, size);
+    assert(ptr == NULL); // Should return NULL on overflow
+}
+
+static void test_vs_malloc_memset(void)
+{
+    size_t nmemb = 5;
+    size_t size = sizeof(int);
+    int *calloc_arr = ft_calloc(nmemb, size);
+    int *malloc_arr = malloc(nmemb * size);
+    memset(malloc_arr, 0, nmemb * size);
+    assert(memcmp(calloc_arr, malloc_arr, nmemb * size) == 0);
+    free(calloc_arr);
+    free(malloc_arr);
+}
+
 void test_ft_calloc(void)
 {
     TEST_START();
@@ -80,5 +100,7 @@ void test_ft_calloc(void)
     test_both_zero();
     test_large_allocation();
     test_content_initialization();
+    test_overflow();
+    test_vs_malloc_memset();
     TEST_PASS();
 }

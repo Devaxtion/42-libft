@@ -81,6 +81,14 @@ static void test_large_strings(void)
     free(result);
 }
 
+static void test_empty_result(void)
+{
+    char *result = ft_strjoin("", "");
+    assert(result != NULL);
+    assert(result[0] == '\0');  // Explicit empty string check
+    free(result);
+}
+
 void test_ft_strjoin(void)
 {
     TEST_START();
@@ -92,5 +100,6 @@ void test_ft_strjoin(void)
     test_null_second_string();
     test_special_chars();
     test_large_strings();
+    test_empty_result();
     TEST_PASS();
 }

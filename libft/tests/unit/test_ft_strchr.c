@@ -68,6 +68,13 @@ static void test_find_zero(void)
     char *expected = strchr(str, '\0');
     assert(result == expected);
 }
+static void test_return_value_address(void)
+{
+    const char *str = "test";
+    char *dup = ft_strdup(str);
+    assert(dup != str);  // Should be different addresses
+    free(dup);
+}
 
 void test_ft_strchr(void)
 {
@@ -81,5 +88,6 @@ void test_ft_strchr(void)
     test_empty_string();
     test_int_to_char_conversion();
     test_find_zero();
+    test_return_value_address();
     TEST_PASS();
 }

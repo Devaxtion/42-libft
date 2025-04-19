@@ -70,6 +70,16 @@ static void test_no_null_termination_needed(void)
     assert(result == strlen(src));
 }
 
+static void test_source_longer_than_dstsize(void)
+{
+    char dst[5];
+    const char *src = "This is much longer";
+    size_t result = ft_strlcpy(dst, src, sizeof(dst));
+    
+    assert(strcmp(dst, "This") == 0);
+    assert(result == strlen(src));
+}
+
 void test_ft_strlcpy(void)
 {
     TEST_START();
@@ -80,5 +90,6 @@ void test_ft_strlcpy(void)
     test_empty_source();
     test_one_byte_buffer();
     test_no_null_termination_needed();
+    test_source_longer_than_dstsize();
     TEST_PASS();
 }

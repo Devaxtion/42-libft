@@ -1,9 +1,5 @@
 #include "../testlib.h"
 
-#include <assert.h>
-#include <stdlib.h>
-#include "../../libft.h"
-
 static void test_add_to_empty_list(void)
 {
     t_list *lst = NULL;

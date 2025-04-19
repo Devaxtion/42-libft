@@ -37,20 +37,20 @@ static void test_clear_multiple_node_list(void)
     assert(lst == NULL);
 }
 
-static void test_clear_with_null_del(void)
-{
-    // char *str = strdup("Test content");
-    // t_list *lst = ft_lstnew(str);
-    
-    // ft_lstclear(&lst, NULL);
-    // assert(lst == NULL);
-    // free(str); // Clean up since del wasn't called
-}
-
 static void test_null_list_pointer(void)
 {
     // Should not crash when passed NULL list pointer
     ft_lstclear(NULL, content_deleter);
+}
+
+static void test_mixed_content_types(void)
+{
+    int *num = malloc(sizeof(int));
+    *num = 42;
+    t_list *lst = ft_lstnew(num);
+    
+    ft_lstclear(&lst, content_deleter);
+    assert(lst == NULL);
 }
 
 void test_ft_lstclear(void)
@@ -59,7 +59,7 @@ void test_ft_lstclear(void)
     test_clear_empty_list();
     test_clear_single_node_list();
     test_clear_multiple_node_list();
-    test_clear_with_null_del();
     test_null_list_pointer();
+    test_mixed_content_types();
     TEST_PASS();
 }
