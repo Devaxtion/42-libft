@@ -4,6 +4,7 @@
 !*.*
 
 # Other files
+!Makefile
 .vscode
 *.exe
 *.out
