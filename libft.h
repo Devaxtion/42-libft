@@ -17,11 +17,12 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>
-// # define NULL '\0'
-// typedef long long unsigned size_t;
-// # include <limits.h>
-// # define INT_MAX 2147483647
-// # define INT_MIN -2147483648
+
+typedef struct	s_list
+{
+	void *content;
+	struct s_list *next;
+}	t_list;
 
 // Part 1
 int	ft_atoi(const char *nptr);
@@ -61,12 +62,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 // Bonus
-typedef struct	s_list
-{
-	void *content;
-	struct s_list *next;
-}	t_list;
-
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int	ft_lstsize(t_list *lst);

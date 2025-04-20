@@ -23,6 +23,8 @@ int	ft_atoi(const char *nptr)
     unsigned long	number;
     int	sign;
 
+    if (!nptr)
+        return (0);
     i = 0;
     number = 0;
     sign = 1;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 12:44:30 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/16 13:01:56 by leramos-         ###   ########.fr       */
+/*   Created: 2025/04/20 14:31:03 by leramos-          #+#    #+#             */
+/*   Updated: 2025/04/20 14:31:03 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst || !(*f) || !(*del))
 		return (NULL);
-
 	
 	new_lst = ft_lstnew((*f)(lst->content));
 	if (!new_lst)

@@ -11,7 +11,7 @@ static void test_extended_ascii(void)
 {
     // Test extended ASCII (128-255)
     for (int c = 128; c <= 255; c++)
-        assert(ft_isascii(c) != 0);
+        assert(ft_isascii(c) == 0);
 }
 
 static void test_negative_values(void)
