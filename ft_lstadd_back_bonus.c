@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:30:17 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/20 14:30:17 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:13:42 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *last;
+	t_list	*last;
 
 	if (!new || !lst)
-        return ;
+		return ;
 	if (!*lst)
 		*lst = new;
 	else

@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 14:29:31 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/10 14:45:15 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:10:58 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (*(unsigned char *)(s + i) == (unsigned char)c)
-			return (void *)(s + i);
+			return ((void *)(s + i));
 		i++;
 	}
 	return (NULL);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testlib copy.h                                     :+:      :+:    :+:   */
+/*   testlib.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 19:25:36 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/16 13:26:23 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/21 13:28:23 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <stdio.h>
 # include <ctype.h>
+# include <stdint.h>
 # include "../libft.h"
 
 // Color definitions

@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:12:11 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/15 13:12:11 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:01:15 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
-	char *dst;
+	char			*dst;
 
 	if (!s || !f)
 		return (NULL);
@@ -25,7 +25,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (s[i])
 	{
-		dst[i] = (*f)(i, s[i]);
+		dst[i] = f(i, s[i]);
 		i++;
 	}
 	dst[i] = '\0';
