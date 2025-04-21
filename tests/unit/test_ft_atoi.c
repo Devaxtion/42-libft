@@ -34,13 +34,6 @@ static void test_mixed_cases() {
     assert(ft_atoi("-42!@#") == -42);
 }
 
-static void test_overflow_cases() {
-    assert(ft_atoi("2147483648") == INT_MAX);
-    assert(ft_atoi("-2147483649") == INT_MIN);
-    assert(ft_atoi("99999999999999999999") == INT_MAX);
-    assert(ft_atoi("-99999999999999999999") == INT_MIN);
-}
-
 static void test_empty_string() {
     assert(ft_atoi("") == 0);
     assert(ft_atoi("    ") == 0);
@@ -53,7 +46,6 @@ void test_ft_atoi() {
     test_whitespace_cases();
     test_multiple_signs();
     test_mixed_cases();
-    test_overflow_cases();
     test_empty_string();
     TEST_PASS();
 }

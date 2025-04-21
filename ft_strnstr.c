@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 11:58:20 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/21 15:06:13 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/21 16:22:08 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (!*little)
-		return ((char *) big);
+	if (!little[0])
+		return ((char *)big);
 	if (!big && len == 0)
 		return (NULL);
 	i = 0;

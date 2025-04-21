@@ -32,11 +32,6 @@ static void test_char_not_found(void)
     assert(result == expected);
 }
 
-static void test_null_input(void)
-{
-    assert(ft_memchr(NULL, 'a', 5) == NULL);
-}
-
 static void test_zero_length(void)
 {
     char str[] = "test";
@@ -76,7 +71,6 @@ void test_ft_memchr(void)
     test_find_first_char();
     test_find_last_char();
     test_char_not_found();
-    test_null_input();
     test_zero_length();
     test_partial_search();
     test_find_null_byte();

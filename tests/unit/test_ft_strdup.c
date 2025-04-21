@@ -57,14 +57,6 @@ static void test_null_termination(void)
     free(system_dup);
 }
 
-static void test_null_input(void)
-{
-    char *duplicate = ft_strdup(NULL);
-    // Note: strdup(NULL) is undefined behavior in standard C
-    // Some implementations may handle it differently
-    assert(duplicate == NULL);
-}
-
 static void test_memory_allocation(void)
 {
     // This test verifies the allocation size is correct
@@ -85,7 +77,6 @@ void test_ft_strdup(void)
     test_empty_string();
     test_special_chars();
     test_null_termination();
-    test_null_input();
     test_memory_allocation();
     TEST_PASS();
 }

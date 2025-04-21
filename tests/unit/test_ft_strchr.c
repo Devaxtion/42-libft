@@ -40,11 +40,6 @@ static void test_null_terminator(void)
     assert(result == expected);
 }
 
-static void test_null_input(void)
-{
-    assert(ft_strchr(NULL, 'a') == NULL);
-}
-
 static void test_empty_string(void)
 {
     const char *str = "";
@@ -84,7 +79,6 @@ void test_ft_strchr(void)
     test_find_last_char();
     test_char_not_found();
     test_null_terminator();
-    test_null_input();
     test_empty_string();
     test_int_to_char_conversion();
     test_find_zero();

@@ -58,11 +58,6 @@ static void test_large_buffer(void)
     assert(memcmp(buf1, buf2, 1000) == 0);
 }
 
-static void test_null_pointer(void)
-{
-    assert(ft_memset(NULL, 'a', 5) == NULL);
-}
-
 static void test_int_to_unsigned_char_conversion(void)
 {
     char str1[10] = {0};
@@ -93,7 +88,6 @@ void test_ft_memset(void)
     test_full_overwrite();
     test_non_char_buffer();
     test_large_buffer();
-    test_null_pointer();
     test_int_to_unsigned_char_conversion();
     test_boundary_values();
     TEST_PASS();

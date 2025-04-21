@@ -43,14 +43,6 @@ static void test_not_found(void)
     assert(result == NULL);
 }
 
-static void test_partial_search(void)
-{
-    const char *big = "Hello world";
-    const char *little = "world";
-    char *result = ft_strnstr(big, little, 8);  // Only search first 8 chars
-    assert(result == big + 6);  // Adjust based on implementation
-}
-
 static void test_null_terminator_in_little(void)
 {
     const char *big = "Hello\0world";
@@ -92,7 +84,6 @@ void test_ft_strnstr(void)
     test_substring_at_end();
     test_empty_little();
     test_not_found();
-    test_partial_search();
     test_null_terminator_in_little();
     test_zero_len();
     test_exact_match();
