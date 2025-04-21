@@ -6,44 +6,68 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:08:31 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/12 12:08:31 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:15:49 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int ft_iswhitespace(char c)
+static int	ft_iswhitespace(char c)
 {
-    return (c == ' ' || (c >= 9 && c <= 13));
+	return (c == ' ' || (c >= 9 && c <= 13));
+}
+
+static void	handle_whitespace(const char *nptr, size_t *i)
+{
+	while (ft_iswhitespace(nptr[*i]))
+		(*i)++;
+}
+
+static int	handle_sign(const char *nptr, size_t *i)
+{
+	int	is_negative;
+
+	if (nptr[*i] == '+' || nptr[*i] == '-')
+	{
+		is_negative = nptr[*i] == '-';
+		(*i)++;
+	}
+	else
+		is_negative = 0;
+	return (is_negative);
+}
+
+static unsigned long
+	handle_number(const char *nptr, size_t *i, int is_negative)
+{
+	unsigned long	number;
+
+	number = 0;
+	while (ft_isdigit(nptr[*i]))
+	{
+		number = (number * 10) + (nptr[*i] - '0');
+		if (number > INT_MAX && !is_negative)
+			return (INT_MAX);
+		if (number > (unsigned long)INT_MAX + 1 && is_negative)
+			return (INT_MIN);
+		(*i)++;
+	}
+	if (is_negative)
+		number = -number;
+	return (number);
 }
 
 int	ft_atoi(const char *nptr)
 {
-    size_t	i;
-    unsigned long	number;
-    int	sign;
+	size_t			i;
+	unsigned long	number;
+	int				is_negative;
 
-    if (!nptr)
-        return (0);
-    i = 0;
-    number = 0;
-    sign = 1;
-    while (ft_iswhitespace(nptr[i]))
-        i++;
-    if (nptr[i] == '+' || nptr[i] == '-')
-    {
-        if (nptr[i] == '-')
-            sign = -1;
-        i++;
-    }
-    while (ft_isdigit(nptr[i]))
-    {
-        number = (number * 10) + (nptr[i] - '0');
-        if (number > INT_MAX && sign == 1)
-            return (INT_MAX);
-        if (number > (unsigned long)INT_MAX + 1 && sign == -1)
-            return (INT_MIN);
-        i++;
-    }
-    return (sign * number);
+	if (!nptr)
+		return (0);
+	i = 0;
+	handle_whitespace(nptr, &i);
+	is_negative = handle_sign(nptr, &i);
+	number = handle_number(nptr, &i, is_negative);
+	return (number);
 }
