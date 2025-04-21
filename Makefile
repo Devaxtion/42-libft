@@ -47,8 +47,6 @@ all: ${NAME}
 ${NAME}: ${OBJS}
 	$(AR) $@ $^
 
-# bonus: ${OBJS_BONUS}
-# 	$(AR) ${NAME} $(OBJS_BONUS)
 bonus: ${NAME} ${OBJS_BONUS}
 	${AR} ${NAME} ${OBJS_BONUS}
 
