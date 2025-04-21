@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:30:01 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/10 13:32:48 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:19:48 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
-	if (!s)
-		return ;
 	i = 0;
 	while (i < n)
 	{

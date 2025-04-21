@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:08:31 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/21 14:15:49 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:48:21 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,9 @@ static int	handle_sign(const char *nptr, size_t *i)
 {
 	int	is_negative;
 
+	is_negative = (nptr[*i] == '-');
 	if (nptr[*i] == '+' || nptr[*i] == '-')
-	{
-		is_negative = nptr[*i] == '-';
 		(*i)++;
-	}
-	else
-		is_negative = 0;
 	return (is_negative);
 }
 
@@ -46,10 +42,6 @@ static unsigned long
 	while (ft_isdigit(nptr[*i]))
 	{
 		number = (number * 10) + (nptr[*i] - '0');
-		if (number > INT_MAX && !is_negative)
-			return (INT_MAX);
-		if (number > (unsigned long)INT_MAX + 1 && is_negative)
-			return (INT_MIN);
 		(*i)++;
 	}
 	if (is_negative)
@@ -63,11 +55,9 @@ int	ft_atoi(const char *nptr)
 	unsigned long	number;
 	int				is_negative;
 
-	if (!nptr)
-		return (0);
 	i = 0;
 	handle_whitespace(nptr, &i);
 	is_negative = handle_sign(nptr, &i);
 	number = handle_number(nptr, &i, is_negative);
-	return (number);
+	return ((int)(number));
 }

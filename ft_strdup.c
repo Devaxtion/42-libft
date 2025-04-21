@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:42:17 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/16 14:52:48 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/21 15:27:15 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s)
 	char	*p;
 	size_t	i;
 
-	if (!s)
-		return (NULL);
 	p = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!p)
 		return (NULL);
