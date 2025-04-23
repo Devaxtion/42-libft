@@ -6,49 +6,49 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:43:56 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/21 13:55:52 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/23 13:36:53 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_countword(char const *s, char c)
+static size_t	count_words(char const *str, char c)
 {
 	size_t	count;
 
-	if (!*s)
+	if (!*str)
 		return (0);
 	count = 0;
-	while (*s)
+	while (*str)
 	{
-		while (*s == c)
-			s++;
-		if (*s)
+		while (*str == c)
+			str++;
+		if (*str)
 			count++;
-		while (*s != c && *s)
-			s++;
+		while (*str && *str != c)
+			str++;
 	}
 	return (count);
 }
 
-static char	**ft_build_array(char **array, char const *s, char c)
+static char	**fill_array(char **array, char const *str, char c)
 {
 	size_t	i;
 	size_t	str_len;
 
 	i = 0;
-	while (*s)
+	while (*str)
 	{
-		while (*s == c && *s)
-			s++;
-		if (*s)
+		while (*str == c && *str)
+			str++;
+		if (*str)
 		{
-			if (!ft_strchr(s, c))
-				str_len = ft_strlen(s);
+			if (!ft_strchr(str, c))
+				str_len = ft_strlen(str);
 			else
-				str_len = ft_strchr(s, c) - s;
-			array[i] = ft_substr(s, 0, str_len);
-			s += str_len;
+				str_len = ft_strchr(str, c) - str;
+			array[i] = ft_substr(str, 0, str_len);
+			str += str_len;
 			i++;
 		}
 	}
@@ -62,9 +62,9 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	array = malloc((ft_countword(s, c) + 1) * sizeof(char *));
+	array = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
-	array = ft_build_array(array, s, c);
+	array = fill_array(array, s, c);
 	return (array);
 }
