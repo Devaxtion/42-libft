@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 13:35:56 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/23 13:28:30 by leramos-         ###   ########.fr       */
+/*   Created: 2025/04/23 12:04:15 by leramos-          #+#    #+#             */
+/*   Updated: 2025/04/23 12:36:13 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+static void	*ft_memcpy_backwards(void *dest, const void *src, size_t n)
 {
-	int	i;
-	int	str_len;
+	char		*d;
+	const char	*s;
 
-	i = 0;
-	str_len = ft_strlen(str);
-	while (i <= str_len)
+	d = dest;
+	s = src;
+	while (n > 0)
 	{
-		if (str[i] == (char)c)
-			return ((char *)(str + i));
-		i++;
+		n--;
+		d[n] = s[n];
 	}
-	return (NULL);
+	return (dest);
+}
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	if (dest == src || n == 0)
+		return (dest);
+	if (dest < src)
+		ft_memcpy(dest, src, n);
+	else
+		ft_memcpy_backwards(dest, src, n);
+	return (dest);
 }

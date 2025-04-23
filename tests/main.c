@@ -15,6 +15,7 @@
     X(test_ft_memchr) \
     X(test_ft_memcmp) \
     X(test_ft_memcpy) \
+    X(test_ft_memmove) \
     X(test_ft_memset) \
     X(test_ft_strchr) \
     X(test_ft_strdup) \

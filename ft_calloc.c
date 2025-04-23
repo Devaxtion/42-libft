@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:23:52 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/21 14:15:02 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/23 13:16:52 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t			total_size;
 
 	total_size = nmemb * size;
+	if (size && ((total_size / size) != nmemb))
+		return (NULL);
 	array = malloc(total_size);
 	if (!array)
 		return (NULL);

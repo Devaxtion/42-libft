@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:30:56 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/20 14:30:56 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/23 12:52:49 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (!lst)
-		return (NULL);
-	if (lst->next != NULL)
-		return (ft_lstlast(lst->next));
-	else
-		return (lst);
+	while (lst)
+	{
+		if (!lst->next)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
 }

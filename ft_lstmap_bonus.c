@@ -6,7 +6,7 @@
 /*   By: leramos- <leramos-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:31:03 by leramos-          #+#    #+#             */
-/*   Updated: 2025/04/21 14:15:12 by leramos-         ###   ########.fr       */
+/*   Updated: 2025/04/23 12:59:22 by leramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,21 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_lst;
-	t_list	*temp_lst;
-	t_list	*temp_new_node;
+	t_list	*new_node;
 
-	if (!lst || !(*f) || !(*del))
+	if (!lst || !f || !del)
 		return (NULL);
-	new_lst = ft_lstnew((*f)(lst->content));
-	if (!new_lst)
-		return (NULL);
-	temp_lst = lst->next;
-	while (temp_lst)
+	new_lst = NULL;
+	while (lst)
 	{
-		temp_new_node = ft_lstnew((*f)(temp_lst->content));
-		if (!temp_new_node)
+		new_node = ft_lstnew(f(lst->content));
+		if (!new_node)
 		{
-			ft_lstclear(&new_lst, (*del));
+			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&new_lst, temp_new_node);
-		temp_lst = temp_lst->next;
+		ft_lstadd_back(&new_lst, new_node);
+		lst = lst->next;
 	}
 	return (new_lst);
 }
